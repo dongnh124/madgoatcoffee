@@ -237,6 +237,7 @@ To use this file:
             {% continue %}
           {% endif %}
           {% assign option_title = p.first %}
+          {% unless option_title == 'shipping_interval_frequency' or option_title == 'shipping_interval_unit_type' or option_title == 'number_charges_until_expiration' %}
           <div class='bold_option_line'><span class="bold_option_title">{{ p.first | replace: '__', '' | replace: '&amp;', '&' }}</span><span class="bold_option_seperator">: </span>
 
           {% comment %} DISPLAY UPLOAD LINKS AS LINKS, EVERYTHING ELSE AS TEXT{% endcomment %}
@@ -246,6 +247,8 @@ To use this file:
           	<span class="bold_option_value" >{{ p.last | replace: '&amp;', '&' | replace: '&lt;', '<' | replace: '&gt;', '>'  }}</span>
           {% endif %}
           </div>
+          {% endunless %}
+
       {% endfor %}
 	</div>
 	{% if bold_item.properties[builder_id] != blank %}

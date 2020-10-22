@@ -1,0 +1,733 @@
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+{{ 'api.jquery.js' | shopify_asset_url | script_tag }}
+<!-- Subscription / Send gift -->
+{% assign subscribe_to = "subscribe_to" %}
+{% assign send_gift = "send_gift" %}
+
+<!-- Roaster's Choice - Light Roast 4682065608779 -->
+{% assign light_roast = all_products['light-roast-pick'] %}
+{% capture light_roast_img %}{{ 'opt2-light-roast.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+
+<!-- Roaster's Choice - Dark Roast 4682071539787 -->
+{% assign dark_roast = all_products['dark-roast-pick'] %}
+{% capture dark_roast_img %}{{ 'opt2-dark-roast.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+
+<!-- Roaster's Choice - Surprise Me! 4682071900235 -->
+{% assign surprise = all_products['roasters-choice'] %}
+{% capture surprise_img %}{{ 'opt2-surprise-me.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+
+<!-- Decaf Subscription 4682072424523 -->
+{% assign decaf = all_products['decaf-pick'] %}
+{% capture decaf_img %}{{ 'opt2-decaf.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+
+<!-- Route One Espresso Subscription 4682072817739 -->
+{% assign espresso = all_products['espresso-pick'] %}
+{% capture espresso_img %}{{ 'opt2-espresso.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+
+<!-- grind type img -->
+{% capture grind_drip_coffee_img %}{{ 'opt3-drip-coffee.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+{% capture grind_espresso_img %}{{ 'opt3-espresso.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+{% capture grind_french_press_img %}{{ 'opt3-french-press.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+{% capture grin_pour_over_img %}{{ 'opt3-pour-over.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+{% capture grind_whole_bean_img %}{{ 'opt3-whole-bean.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+
+<!-- quantity img -->
+{% capture five_pound_img %}{{ 'opt4-five-pound-bag.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+{% capture one_bag_img %}{{ 'opt4-one-bag.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+{% capture two_bag_img %}{{ 'opt4-two-bags.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+
+<!-- frequency img -->
+{% capture four_week_img %}{{ 'opt5-every-4-weeks.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+{% capture other_week_img %}{{ 'opt5-every-other-week.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+{% capture weekly_img %}{{ 'opt5-weekly.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+
+<!-- duration img -->
+{% capture subscription3_img %}{{ 'opt6-subscription-3.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+{% capture subscription6_img %}{{ 'opt6-subscription-6.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+{% capture subscription9_img %}{{ 'opt6-subscription-9.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+{% capture subscription12_img %}{{ 'opt6-subscription-12.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
+
+<!-- grind type value -->
+{% assign grind_drip_coffee_val = "Ground (medium)" %}
+{% assign grind_espresso_val = "Ground (extra fine)" %}
+{% assign grind_french_press_val = "Ground (coarse)" %}
+{% assign grin_pour_over_val = "Ground (fine)" %}
+{% assign grind_whole_bean_val = "Whole bean" %}
+
+<!-- quantity value -->
+{% assign five_pound_val = "(1) 5lb Bag" %}
+{% assign one_bag_val = "(1) 12oz Bag" %}
+{% assign two_bag_val = "(2) 12oz Bag" %}
+
+<!-- grind type text -->
+{% assign grind_drip_coffee_text = "Medium - Drip" %}
+{% assign grind_espresso_text = "Extra Fine - Espresso" %}
+{% assign grind_french_press_text = "Coarse - French Press" %}
+{% assign grin_pour_over_text = "Fine - Pour Over" %}
+{% assign grind_whole_bean_text = "Whole Bean (Most Popular)" %}
+
+<!-- quantity text -->
+{% assign five_pound_text = "5 Pound Bag" %}
+{% assign one_bag_text = "One 12 oz Bag" %}
+{% assign two_bag_text = "Two 12 oz Bags" %}
+
+<!-- frequency value -->
+{% assign four_week_text = "Every 4 weeks" %}
+{% assign other_week_text = "Every 2 weeks" %}
+{% assign weekly_text = "Every week" %}
+
+<!-- duration text -->
+{% assign subscription3_text = "3 times" %}
+{% assign subscription6_text = "6 times" %}
+{% assign subscription9_text = "9 times" %}
+{% assign subscription12_text = "12 times" %}
+<style>
+  /* ------------------------------ */
+  .hr--module {
+    width: 85%;
+    border-color: #cacaca;
+  }
+  .module-flex {
+    display: flex;
+  }
+  .col-2 .module-item {
+    width: 50%;
+  }
+  .col-3 .module-item {
+    width: 33.33%;
+  }
+  .col-3 .module-item .img {
+    max-width: 60%;
+    margin: 0 auto;
+  }
+  .col-4 .module-item {
+    width: 25%;
+  }
+  .col-4 .module-item .img {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  .col-5 .module-item {
+    width: 20%;
+    padding: 0 25px;
+  }
+  .module-block .header span {
+    font-style: normal;
+    border: solid #181818 2px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: 0 auto 25px auto;
+    line-height: 55px;
+    font-size: 24px;
+    color: #181818;
+  }
+  .module-item {
+    border-right: 1px solid #cacaca;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .module-item.order-info {
+    justify-content: flex-start;
+  }
+  .module-item:last-child {
+    border-width: 0px;
+  }
+  .module-item .title {
+    text-align: center;
+    font-weight: 600;
+    margin-top: 15px;
+  }
+  .module-item .button {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .info-step {
+    display: flex;
+    align-items: center;
+  }
+  .img-summary {
+    max-width: 140px;
+    margin-right: 25px;
+  }
+  .info-order {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+  }
+  .btn-subscribe.disabled {
+    pointer-events: none;
+  }
+  /* ------------------------------ */
+  .text-center {
+    text-align: center;
+  }
+  .italic {
+    font-style: italic;
+  }
+  .bold {
+    font-weight: 600;
+  }
+  .mg-top-15 {
+    margin-top: 15px;
+  }
+  .mg-bot-15 {
+    margin-bottom: 15px;
+  }
+  .btn-step {
+    background-color: #fff;
+    color: #1c1d1d;
+    border: 2px solid #1c1d1d;
+  }
+  .btn-step.selected {
+    background-color: #1c1d1d;
+    color: #fff;
+  }
+  @media (max-width: 767px) {
+    .module-wrapper {
+      font-size: 13px;
+    }
+    #step-0 {
+      margin-bottom: 70px;
+    }
+    #step-0 .title {
+      height: 30%;
+    }
+    #step-0 .description {
+      height: 30%;
+    }
+    .col-5 .module-item {
+      padding: 0;
+    }
+    .module-item {
+      border: unset;
+    }
+    .module-item .description {
+      text-overflow: clip;
+    }
+    .btn-step {
+      border-right-width: 0;
+    }
+    .module-item:last-child .btn-step {
+      border-right-width: 2px;
+    }
+    input[class*="btn-step"] {
+      font-size: 10px;
+      padding: 10px 5px;
+      width: 100%;
+    }
+    .img-summary {
+      max-width: 40%;
+      margin-right: 0;
+    }
+  }
+</style>
+<div class="module-wrapper">
+  <div class="module module-header">
+    <header class="section-header text-center">
+      <h1>{{ section.settings.title }}</h1>
+      <hr class="hr--small">
+      {% if section.settings.description != blank %}
+        <div class="grid">
+          <div class="grid__item">
+            <div class="rte">
+              {{ section.settings.description }}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </header>    
+  </div>
+  <!-- Subscription / Send gift -->
+  <div id="step-0" class="module module-block mg-bot-15">
+    <hr class="hr--small hr--module">
+    <div class="module-flex col-2">
+      <div class="module-item">
+        <div class="title">
+          <h2 class="bold">SUBSCRIBE TO</h2>
+          <h2 class="bold">MAD GOAT COFFEE</h2>
+        </div>
+        <div class="button">
+          <input class="btn btn-step" data-step="0" data-val="ongoing" data-src="" data-title="SUBSCRIBE" type="submit" value="GET STARTED" />
+        </div>
+        <div class="description">
+          <p class="text-center bold">Never run out of coffee again.</p>
+          <p class="text-center italic">Customize your order</p>
+          <p class="text-center italic">Set up a recurring payment</p>
+          <p class="text-center italic">Ship on your schedule</p>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="title">
+          <h2 class="bold">SEND A GIFT SUBSCRIPTION</h2>
+          <h2 class="bold">OF MAD GOAT COFFEE</h2>
+        </div>
+        <div class="button">
+          <input class="btn btn-step" data-step="0" data-val="gift" data-src="" data-title="SEND A GIFT" type="submit" value="GET STARTED" />
+        </div>
+        <div class="description">
+          <p class="text-center bold">Treat your coffee-loving friends.</p>
+          <p class="text-center italic">Customize their order</p>
+          <p class="text-center italic">Pay upfront</p>
+          <p class="text-center italic">Include a gift note</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Select your coffee -->
+  <div id="step-1" class="module module-block mg-top-15" style="display: none;">
+    <div class="header text-center">
+      <span>1</span>
+      <h2 class="bold">SELECT YOUR COFFEE</h2>
+    </div>
+    <div class="module-flex col-5">
+      <div class="module-item">
+        <img class="img" src="{{ light_roast_img }}" />
+        <p class="title">{{ light_roast.title }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="1" data-val="{{ light_roast.id }}" data-src="{{ light_roast_img }}" data-title="{{ light_roast.title }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+      <div class="module-item">
+        <img class="img" src="{{ dark_roast_img }}" />
+        <p class="title">{{ dark_roast.title }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="1" data-val="{{ dark_roast.id }}" data-src="{{ dark_roast_img }}" data-title="{{ dark_roast.title }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+      <div class="module-item">
+        <img class="img" src="{{ surprise_img }}" />
+        <p class="title">{{ surprise.title }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="1" data-val="{{ surprise.id }}" data-src="{{ surprise_img }}" data-title="{{ surprise.title }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+      <div class="module-item">
+        <img class="img" src="{{ decaf_img }}" />
+        <p class="title">{{ decaf.title }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="1" data-val="{{ decaf.id }}" data-src="{{ decaf_img }}" data-title="{{ decaf.title }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+      <div class="module-item">
+        <img class="img" src="{{ espresso_img }}" />
+        <p class="title">{{ espresso.title }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="1" data-val="{{ espresso.id }}" data-src="{{ espresso_img }}" data-title="{{ espresso.title }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Whole bean or ground -->
+  <div id="step-2" class="module module-block mg-top-15" style="display: none;">
+    <div class="header text-center">
+      <span>2</span>
+      <h2 class="bold">WHOLE BEAN OR GROUND?</h2>
+    </div>
+    <div class="module-flex col-5">
+      <div class="module-item">
+        <img class="img" src="{{ grind_whole_bean_img }}" />
+        <p class="title">{{ grind_whole_bean_text }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="2" data-val="{{ grind_whole_bean_val }}" data-src="{{ grind_whole_bean_img }}" data-title="{{ grind_whole_bean_text }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+      <div class="module-item">
+        <img class="img" src="{{ grind_french_press_img }}" />
+        <p class="title">{{ grind_french_press_text }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="2" data-val="{{ grind_french_press_val }}" data-src="{{ grind_french_press_img }}" data-title="{{ grind_french_press_text }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+      <div class="module-item">
+        <img class="img" src="{{ grind_drip_coffee_img }}" />
+        <p class="title">{{ grind_drip_coffee_text }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="2" data-val="{{ grind_drip_coffee_val }}" data-src="{{ grind_drip_coffee_img }}" data-title="{{ grind_drip_coffee_text }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+      <div class="module-item">
+        <img class="img" src="{{ grin_pour_over_img }}" />
+        <p class="title">{{ grin_pour_over_text }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="2" data-val="{{ grin_pour_over_val }}" data-src="{{ grin_pour_over_img }}" data-title="{{ grin_pour_over_text }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+      <div class="module-item">
+        <img class="img" src="{{ grind_espresso_img }}" />
+        <p class="title">{{ grind_espresso_text }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="2" data-val="{{ grind_espresso_val }}" data-src="{{ grind_french_press_img }}" data-title="{{ grind_espresso_text }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How much coffee do you want -->
+  <div id="step-3" class="module module-block mg-top-15" style="display: none;">
+    <div class="header text-center">
+      <span>3</span>
+      <h2 class="bold">HOW MUCH COFFEE DO YOU WANT?</h2>
+    </div>
+    <div class="module-flex col-3">
+      <div class="module-item">
+        <img class="img" src="{{ one_bag_img }}" />
+        <p class="title">{{ one_bag_text }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="3" data-val="{{ one_bag_val }}" data-src="{{ one_bag_img }}" data-title="{{ one_bag_text }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+      <div class="module-item">
+        <img class="img" src="{{ two_bag_img }}" />
+        <p class="title">{{ two_bag_text }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="3" data-val="{{ two_bag_val }}" data-src="{{ two_bag_img }}" data-title="{{ two_bag_text }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+      <div class="module-item">
+        <img class="img" src="{{ five_pound_img }}" />
+        <p class="title">{{ five_pound_text }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="3" data-val="{{ five_pound_val }}" data-src="{{ five_pound_img }}" data-title="{{ five_pound_text }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How often -->
+  <div id="step-4" class="module module-block mg-top-15" style="display: none;">
+    <div class="header text-center">
+      <span>4</span>
+      <h2 class="bold">HOW OFTEN?</h2>
+    </div>
+    <div class="module-flex col-3">
+      <div class="module-item">
+        <img class="img" src="{{ weekly_img }}" />
+        <p class="title">{{ weekly_text }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="4" data-val="1" data-src="{{ weekly_img }}" data-title="{{ weekly_text }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+      <div class="module-item">
+        <img class="img" src="{{ other_week_img }}" />
+        <p class="title">{{ other_week_text }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="4" data-val="2" data-src="{{ other_week_img }}" data-title="{{ other_week_text }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+      <div class="module-item">
+        <img class="img" src="{{ four_week_img }}" />
+        <p class="title">{{ four_week_text }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="4" data-val="4" data-src="{{ four_week_img }}" data-title="{{ four_week_text }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- How many deliveries -->
+  <div id="step-5" class="module module-block mg-top-15" style="display: none;">
+    <div class="header text-center">
+      <span>5</span>
+      <h2 class="bold">HOW MANY DELIVERIES?</h2>
+    </div>
+    <div class="module-flex col-4">
+      <div class="module-item">
+        <img class="img" src="{{ subscription3_img }}" />
+        <p class="title">{{ subscription3_text }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="5" data-val="3" data-src="{{ subscription3_img }}" data-title="{{ subscription3_text }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+      <div class="module-item">
+        <img class="img" src="{{ subscription6_img }}" />
+        <p class="title">{{ subscription6_text }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="5" data-val="6" data-src="{{ subscription6_img }}" data-title="{{ subscription6_text }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+      <div class="module-item">
+        <img class="img" src="{{ subscription9_img }}" />
+        <p class="title">{{ subscription9_text }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="5" data-val="9" data-src="{{ subscription9_img }}" data-title="{{ subscription9_text }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+      <div class="module-item">
+        <img class="img" src="{{ subscription12_img }}" />
+        <p class="title">{{ subscription12_text }}</p>
+        <div class="button">
+          <input class="btn btn-step" data-step="5" data-val="12" data-src="{{ subscription12_img }}" data-title="{{ subscription12_text }}" type="submit" value="SELECT" />
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Order summary -->
+  <div id="step-6" class="module module-block mg-top-15" style="display: none;">
+    <hr class="hr--small hr--module">
+    <div class="header text-center">
+      <span>6</span>
+      <h2 class="bold">ORDER SUMMARY</h2>
+    </div>
+    <div class="module-flex col-2">
+      <div class="module-item">
+        <div class="info-step step1">
+          <img class="img img-summary" src="{{ light_roast_img }}" />
+          <div>
+            <p class="info-title bold">{{ light_roast.title }}</p>
+            <a class="change" href="#step-1">Change coffee</a>
+          </div>
+        </div>
+        <div class="info-step step2">
+          <img class="img img-summary" src="{{ grind_drip_coffee_img }}" />
+          <div>
+            <p class="info-title bold">{{ grind_drip_coffee_text }}</p>
+            <a class="change" href="#step-2">Change grounds</a>
+          </div>
+        </div>
+        <div class="info-step step3">
+          <img class="img img-summary" src="{{ five_pound_img }}" />
+          <div>
+            <p class="info-title bold">{{ five_pound_text }}</p>
+            <a class="change" href="#step-3">Change size/quantity</a>
+          </div>
+        </div>
+        <div class="info-step step4">
+          <img class="img img-summary" src="{{ other_week_img }}" />
+          <div>
+            <p class="info-title bold">{{ other_week_text }}</p>
+            <a class="change" href="#step-4">Change frequency</a>
+          </div>
+        </div>
+        <div class="info-step step5" style="display: none;">
+          <img class="img img-summary" src="{{ subscription6_img }}" />
+          <div>
+            <p class="info-title bold">{{ subscription6_text }}</p>
+            <a class="change" href="#step-5">Change deliveries</a>
+          </div>
+        </div>
+      </div>
+      <div class="module-item order-info">
+        <div class="info-order info-1">
+          <p class="bold">COFFEE:</p>
+          <p class="bold price">$39.00</p>
+        </div>
+        <div class="info-order info-2">
+          <p class="bold">SHIPPING:</p>
+          <p class="bold shipping">FREE</p>
+        </div>
+        <hr class="hr--small hr--module">
+        <div class="info-order info-3">
+          <p class="bold">TOTAL</p>
+          <p class="bold total">$ 0.00</p>
+        </div>
+        <hr class="hr--small hr--module">
+        <div class="button mg-top-15">
+          <input class="btn btn-subscribe disabled selected" type="submit" value="SUBSCRIBE" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const shopMoneyFormat = "{{ shop.money_format }}";
+  const allProducts = [
+    {{ light_roast | json }},
+    {{ dark_roast | json }},
+    {{ surprise | json }},
+    {{ decaf | json }},
+    {{ espresso | json }},
+  ];
+  let variantSelected = allProducts[0].variants[0]
+  const ONGOING = 'ongoing';
+  const GIFT = 'gift';
+  const result = {
+    step0: {
+      value: '',
+      src: '',
+      title: '',
+    },
+    step1: {
+      value: '',
+      src: '',
+      title: '',
+    },
+    step2: {
+      value: '',
+      src: '',
+      title: '',
+    },
+    step3: {
+      value: '',
+      src: '',
+      title: '',
+    },
+    step4: {
+      value: '',
+      src: '',
+      title: '',
+    },
+    step5: {
+      value: '',
+      src: '',
+      title: '',
+    },
+  }
+
+  const unSelectAll = (indexStep) => {
+    $('#step-'+indexStep+' .btn-step').each( function() {
+      $(this).removeClass('selected').val(indexStep ? 'SELECT' : 'GET STARTED');
+    });
+  }
+
+  const scrollToElm = (elm) => {
+    $('html, body').animate({
+      scrollTop: $(elm).offset().top
+    }, 400);
+  }
+
+  const isAllOptSelected = () => {
+    const { step0, step1, step2, step3, step4, step5 } = result
+    return !!(
+      step1.value && step2.value && step3.value && step4.value
+      && (step0.value === ONGOING || (step0.value === GIFT && step5.value))
+    )
+  }
+
+  const showNextStep = (indexNextStep) => {
+    if (indexNextStep === 1 && $('#step-6').is(":visible")) {
+      if (result.step0.value === GIFT) {
+        $('#step-5').show();
+        scrollToElm('#step-5');
+      } else {
+        $('#step-5').hide();
+        scrollToElm('#step-6');
+      }
+      return
+    }
+
+    if (indexNextStep === 1 && result.step0.value === ONGOING) {
+      $('#step-5').hide();
+      if (result.step4.value) {
+        $('#step-6').show()
+      }
+    }
+
+    if (indexNextStep === 5 && result.step0.value === ONGOING) {
+      const orderStep = indexNextStep + 1;
+      $('#step-'+orderStep).show()
+      scrollToElm('#step-'+orderStep)
+      return
+    }
+
+    $('#step-'+indexNextStep).show()
+    scrollToElm('#step-'+indexNextStep)
+  }
+
+  const updateOrder = () => {
+    Object.keys(result).filter(key => key !== 'step0').map(key => {
+      $('.info-step.'+key+' .img-summary').attr('src', result[key].src);
+      $('.info-step.'+key+' .info-title').html(result[key].title);
+    })
+    if (result.step0.value === GIFT && result.step5.value) {
+      $('.info-step.step5').show();
+    } else {
+      $('.info-step.step5').hide();
+    }
+    if ($('#step-5').is(":visible")) {
+      $('#step-6 .header span').html('6');
+      $('.info-order-note').show();
+    } else {
+      $('#step-6 .header span').html('5');
+      $('.info-order-note').hide();
+    }
+    const isDone = isAllOptSelected()
+    if (isDone) {
+      allProducts.forEach(product => {
+        product.variants.forEach(variant => {
+          if (variant.option1 === result.step2.value && variant.option2 === result.step3.value) {
+            variantSelected = { ...variant }
+          }
+        })
+      })
+
+      $('.info-order.info-1 .price').html(Shopify.formatMoney(variantSelected.price, shopMoneyFormat))
+      $('.info-order.info-3 .total').html(Shopify.formatMoney(variantSelected.price, shopMoneyFormat))
+      $('.btn-subscribe').removeClass('disabled')
+    } else {
+      $('.btn-subscribe').addClass('disabled')
+    }
+  }
+
+  $(document).on('click', '.btn-step', function () {
+    const btnStep = $(this);
+    const indexStep = btnStep.data('step');
+    const val = btnStep.data('val');
+    const src = btnStep.data('src');
+    const title = btnStep.data('title');
+    result['step'+indexStep] = {
+      value: val,
+      src: src,
+      title: title,
+    }
+    unSelectAll(indexStep);
+    btnStep.addClass('selected').val(indexStep ? 'SELECTED' : 'GET STARTED');
+    showNextStep(indexStep + 1);
+    updateOrder()
+  });
+
+  $('a.change').on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 400, function(){
+        window.location.hash = hash;
+      });
+    }
+  });
+
+  $(document).on('click', '.btn-subscribe', function () {
+    const isDone = isAllOptSelected();
+    if (isDone) {
+      const { step0, step1, step2, step3, step4, step5 } = result;
+      const textNote = $('#note-to-gift').val()
+      const data = {
+        items: [
+          {
+            quantity: 1,
+            id: variantSelected.id,
+            properties: {
+              'Type': step0.value === ONGOING ? 'Subscription' : 'Gift',
+              'Coffee Ground': step2.title,
+              'Shipping Interval': step4.value > 1 ? step4.value + ' weeks' : '1 week',
+              'Duration': step0.value === ONGOING ? 'Recurring' : step5.value + ' times',
+              'shipping_interval_frequency': step4.value,
+              'shipping_interval_unit_type': 'Weeks',
+            }
+          }
+        ]
+      }
+      if (step0.value === GIFT) {
+        data.items[0].properties['number_charges_until_expiration'] = step5.value - 1
+      }
+      $.ajax({
+        type        : 'POST',
+        url         : '/cart/add.js',
+        dataType    : 'json',
+        data,
+      }).done(function(data) {
+        window.location.href = '/cart';
+      });
+    } else {
+      scrollToElm('#step-5');
+    }
+  })
+</script>
