@@ -6,3 +6,15 @@
 <div id="SubscriptionProduct" data-section-id="{{ section.id }}" data-section-type="subscription-product-template" data-grid-type="grid">
   {% include 'product-subscription' %}
 </div>
+{% schema %}
+  {
+    "name": "Subscription pages",
+    "settings": [
+      {
+        "type": "collection",
+        "id": "gift_1_3",
+        "label": "Gift 1 - 3"
+      }
+    ]
+  }
+{% endschema %}

@@ -3,25 +3,155 @@
 <!-- Subscription / Send gift -->
 {% assign subscribe_to = "subscribe_to" %}
 {% assign send_gift = "send_gift" %}
+{% assign collection_all = section.settings.gift_1_3 %}
+<script>
+  const abc = {{ collection_all | json }};
+  console.log(abc)
 
+</script>
 <!-- Roaster's Choice - Light Roast 4682065608779 -->
 {% assign light_roast = all_products['light-roast-pick'] %}
+{% assign light_roast_metafields = all_products['light-roast-pick'].metafields.subscriptions %}
+{% assign light_roast_1_3 = all_products['roasters-choice-light-roast-gift-every-week-3-times'] %}
+{% assign light_roast_1_3_metafields = all_products['roasters-choice-light-roast-gift-every-week-3-times'].metafields.subscriptions %}
+{% assign light_roast_1_6 = all_products['roasters-choice-light-roast-gift-every-week-6-times'] %}
+{% assign light_roast_1_6_metafields = all_products['roasters-choice-light-roast-gift-every-week-6-times'].metafields.subscriptions %}
+{% assign light_roast_1_9 = all_products['roasters-choice-light-roast-gift-every-week-9-times'] %}
+{% assign light_roast_1_9_metafields = all_products['roasters-choice-light-roast-gift-every-week-9-times'].metafields.subscriptions %}
+{% assign light_roast_1_12 = all_products['roasters-choice-light-roast-gift-every-week-12-times'] %}
+{% assign light_roast_1_12_metafields = all_products['roasters-choice-light-roast-gift-every-week-12-times'].metafields.subscriptions %}
+{% assign light_roast_2_3 = all_products['roasters-choice-light-roast-gift-every-2-weeks-3-times'] %}
+{% assign light_roast_2_3_metafields = all_products['roasters-choice-light-roast-gift-every-2-weeks-3-times'].metafields.subscriptions %}
+{% assign light_roast_2_6 = all_products['roasters-choice-light-roast-gift-every-2-weeks-6-times'] %}
+{% assign light_roast_2_6_metafields = all_products['roasters-choice-light-roast-gift-every-2-weeks-6-times'].metafields.subscriptions %}
+{% assign light_roast_2_9 = all_products['roasters-choice-light-roast-gift-every-2-weeks-9-times'] %}
+{% assign light_roast_2_9_metafields = all_products['roasters-choice-light-roast-gift-every-2-weeks-9-times'].metafields.subscriptions %}
+{% assign light_roast_2_12 = all_products['roasters-choice-light-roast-gift-every-2-weeks-12-times'] %}
+{% assign light_roast_2_12_metafields = all_products['roasters-choice-light-roast-gift-every-2-weeks-12-times'].metafields.subscriptions %}
+{% assign light_roast_4_3 = all_products['roasters-choice-light-roast-gift-every-4-weeks-3-times'] %}
+{% assign light_roast_4_3_metafields = all_products['roasters-choice-light-roast-gift-every-4-weeks-3-times'].metafields.subscriptions %}
+{% assign light_roast_4_6 = all_products['roasters-choice-light-roast-gift-every-4-weeks-6-times'] %}
+{% assign light_roast_4_6_metafields = all_products['roasters-choice-light-roast-gift-every-4-weeks-6-times'].metafields.subscriptions %}
+{% assign light_roast_4_9 = all_products['roasters-choice-light-roast-gift-every-4-weeks-9-times'] %}
+{% assign light_roast_4_9_metafields = all_products['roasters-choice-light-roast-gift-every-4-weeks-9-times'].metafields.subscriptions %}
+{% assign light_roast_4_12 = all_products['roasters-choice-light-roast-gift-every-4-weeks-12-times'] %}
+{% assign light_roast_4_12_metafields = all_products['roasters-choice-light-roast-gift-every-4-weeks-12-times'].metafields.subscriptions %}
 {% capture light_roast_img %}{{ 'opt2-light-roast.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
 
 <!-- Roaster's Choice - Dark Roast 4682071539787 -->
 {% assign dark_roast = all_products['dark-roast-pick'] %}
+{% assign dark_roast_metafields = all_products['dark-roast-pick'].metafields.subscriptions %}
+{% assign dark_roast_1_3 = all_products['roasters-choice-dark-roast-gift-every-week-3-times'] %}
+{% assign dark_roast_1_3_metafields = all_products['roasters-choice-dark-roast-gift-every-week-3-times'].metafields.subscriptions %}
+{% assign dark_roast_1_6 = all_products['roasters-choice-dark-roast-gift-every-week-6-times'] %}
+{% assign dark_roast_1_6_metafields = all_products['roasters-choice-dark-roast-gift-every-week-6-times'].metafields.subscriptions %}
+{% assign dark_roast_1_9 = all_products['roasters-choice-dark-roast-gift-every-week-9-times'] %}
+{% assign dark_roast_1_9_metafields = all_products['roasters-choice-dark-roast-gift-every-week-9-times'].metafields.subscriptions %}
+{% assign dark_roast_1_12 = all_products['roasters-choice-dark-roast-gift-every-week-12-times'] %}
+{% assign dark_roast_1_12_metafields = all_products['roasters-choice-dark-roast-gift-every-week-12-times'].metafields.subscriptions %}
+{% assign dark_roast_2_3 = all_products['roasters-choice-dark-roast-gift-every-2-weeks-3-times'] %}
+{% assign dark_roast_2_3_metafields = all_products['roasters-choice-dark-roast-gift-every-2-weeks-3-times'].metafields.subscriptions %}
+{% assign dark_roast_2_6 = all_products['roasters-choice-dark-roast-gift-every-2-weeks-6-times'] %}
+{% assign dark_roast_2_6_metafields = all_products['roasters-choice-dark-roast-gift-every-2-weeks-6-times'].metafields.subscriptions %}
+{% assign dark_roast_2_9 = all_products['roasters-choice-dark-roast-gift-every-2-weeks-9-times'] %}
+{% assign dark_roast_2_9_metafields = all_products['roasters-choice-dark-roast-gift-every-2-weeks-9-times'].metafields.subscriptions %}
+{% assign dark_roast_2_12 = all_products['roasters-choice-dark-roast-gift-every-2-weeks-12-times'] %}
+{% assign dark_roast_2_12_metafields = all_products['roasters-choice-dark-roast-gift-every-2-weeks-12-times'].metafields.subscriptions %}
+{% assign dark_roast_4_3 = all_products['roasters-choice-dark-roast-gift-every-4-weeks-3-times'] %}
+{% assign dark_roast_4_3_metafields = all_products['roasters-choice-dark-roast-gift-every-4-weeks-3-times'].metafields.subscriptions %}
+{% assign dark_roast_4_6 = all_products['roasters-choice-dark-roast-gift-every-4-weeks-6-times'] %}
+{% assign dark_roast_4_6_metafields = all_products['roasters-choice-dark-roast-gift-every-4-weeks-6-times'].metafields.subscriptions %}
+{% assign dark_roast_4_9 = all_products['roasters-choice-dark-roast-gift-every-4-weeks-9-times'] %}
+{% assign dark_roast_4_9_metafields = all_products['roasters-choice-dark-roast-gift-every-4-weeks-9-times'].metafields.subscriptions %}
+{% assign dark_roast_4_12 = all_products['roasters-choice-dark-roast-gift-every-4-weeks-12-times'] %}
+{% assign dark_roast_4_12_metafields = all_products['roasters-choice-dark-roast-gift-every-4-weeks-12-times'].metafields.subscriptions %}
 {% capture dark_roast_img %}{{ 'opt2-dark-roast.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
 
 <!-- Roaster's Choice - Surprise Me! 4682071900235 -->
 {% assign surprise = all_products['roasters-choice'] %}
+{% assign surprise_metafields = all_products['roasters-choice'].metafields.subscriptions %}
+{% assign surprise_1_3 = all_products['roasters-choice-surprise-me-gift-every-week-3-times'] %}
+{% assign surprise_1_3_metafields = all_products['roasters-choice-surprise-me-gift-every-week-3-times'].metafields.subscriptions %}
+{% assign surprise_1_6 = all_products['roasters-choice-surprise-me-gift-every-week-6-times'] %}
+{% assign surprise_1_6_metafields = all_products['roasters-choice-surprise-me-gift-every-week-6-times'].metafields.subscriptions %}
+{% assign surprise_1_9 = all_products['roasters-choice-surprise-me-gift-every-week-9-times'] %}
+{% assign surprise_1_9_metafields = all_products['roasters-choice-surprise-me-gift-every-week-9-times'].metafields.subscriptions %}
+{% assign surprise_1_12 = all_products['roasters-choice-surprise-me-gift-every-week-12-times'] %}
+{% assign surprise_1_12_metafields = all_products['roasters-choice-surprise-me-gift-every-week-12-times'].metafields.subscriptions %}
+{% assign surprise_2_3 = all_products['roasters-choice-surprise-me-gift-every-2-weeks-3-times'] %}
+{% assign surprise_2_3_metafields = all_products['roasters-choice-surprise-me-gift-every-2-weeks-3-times'].metafields.subscriptions %}
+{% assign surprise_2_6 = all_products['roasters-choice-surprise-me-gift-every-2-weeks-6-times'] %}
+{% assign surprise_2_6_metafields = all_products['roasters-choice-surprise-me-gift-every-2-weeks-6-times'].metafields.subscriptions %}
+{% assign surprise_2_9 = all_products['roasters-choice-surprise-me-gift-every-2-weeks-9-times'] %}
+{% assign surprise_2_9_metafields = all_products['roasters-choice-surprise-me-gift-every-2-weeks-9-times'].metafields.subscriptions %}
+{% assign surprise_2_12 = all_products['roasters-choice-surprise-me-gift-every-2-weeks-12-times'] %}
+{% assign surprise_2_12_metafields = all_products['roasters-choice-surprise-me-gift-every-2-weeks-12-times'].metafields.subscriptions %}
+{% assign surprise_4_3 = all_products['roasters-choice-surprise-me-gift-every-4-weeks-3-times'] %}
+{% assign surprise_4_3_metafields = all_products['roasters-choice-surprise-me-gift-every-4-weeks-3-times'].metafields.subscriptions %}
+{% assign surprise_4_6 = all_products['roasters-choice-surprise-me-gift-every-4-weeks-6-times'] %}
+{% assign surprise_4_6_metafields = all_products['roasters-choice-surprise-me-gift-every-4-weeks-6-times'].metafields.subscriptions %}
+{% assign surprise_4_9 = all_products['roasters-choice-surprise-me-gift-every-4-weeks-9-times'] %}
+{% assign surprise_4_9_metafields = all_products['roasters-choice-surprise-me-gift-every-4-weeks-9-times'].metafields.subscriptions %}
+{% assign surprise_4_12 = all_products['roasters-choice-surprise-me-gift-every-4-weeks-12-times'] %}
+{% assign surprise_4_12_metafields = all_products['roasters-choice-surprise-me-gift-every-4-weeks-12-times'].metafields.subscriptions %}
 {% capture surprise_img %}{{ 'opt2-surprise-me.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
 
 <!-- Decaf Subscription 4682072424523 -->
 {% assign decaf = all_products['decaf-pick'] %}
+{% assign decaf_metafields = all_products['decaf-pick'].metafields.subscriptions %}
+{% assign decaf_1_3 = all_products['decaf-subscription-gift-every-week-3-times'] %}
+{% assign decaf_1_3_metafields = all_products['decaf-subscription-gift-every-week-3-times'].metafields.subscriptions %}
+{% assign decaf_1_6 = all_products['decaf-subscription-gift-every-week-6-times'] %}
+{% assign decaf_1_6_metafields = all_products['decaf-subscription-gift-every-week-6-times'].metafields.subscriptions %}
+{% assign decaf_1_9 = all_products['decaf-subscription-gift-every-week-9-times'] %}
+{% assign decaf_1_9_metafields = all_products['decaf-subscription-gift-every-week-9-times'].metafields.subscriptions %}
+{% assign decaf_1_12 = all_products['decaf-subscription-gift-every-week-12-times'] %}
+{% assign decaf_1_12_metafields = all_products['decaf-subscription-gift-every-week-12-times'].metafields.subscriptions %}
+{% assign decaf_2_3 = all_products['decaf-subscription-gift-every-2-weeks-3-times'] %}
+{% assign decaf_2_3_metafields = all_products['decaf-subscription-gift-every-2-weeks-3-times'].metafields.subscriptions %}
+{% assign decaf_2_6 = all_products['decaf-subscription-gift-every-2-weeks-6-times'] %}
+{% assign decaf_2_6_metafields = all_products['decaf-subscription-gift-every-2-weeks-6-times'].metafields.subscriptions %}
+{% assign decaf_2_9 = all_products['decaf-subscription-gift-every-2-weeks-9-times'] %}
+{% assign decaf_2_9_metafields = all_products['decaf-subscription-gift-every-2-weeks-9-times'].metafields.subscriptions %}
+{% assign decaf_2_12 = all_products['decaf-subscription-gift-every-2-weeks-12-times'] %}
+{% assign decaf_2_12_metafields = all_products['decaf-subscription-gift-every-2-weeks-12-times'].metafields.subscriptions %}
+{% assign decaf_4_3 = all_products['decaf-subscription-gift-every-4-weeks-3-times'] %}
+{% assign decaf_4_3_metafields = all_products['decaf-subscription-gift-every-4-weeks-3-times'].metafields.subscriptions %}
+{% assign decaf_4_6 = all_products['decaf-subscription-gift-every-4-weeks-6-times'] %}
+{% assign decaf_4_6_metafields = all_products['decaf-subscription-gift-every-4-weeks-6-times'].metafields.subscriptions %}
+{% assign decaf_4_9 = all_products['decaf-subscription-gift-every-4-weeks-9-times'] %}
+{% assign decaf_4_9_metafields = all_products['decaf-subscription-gift-every-4-weeks-9-times'].metafields.subscriptions %}
+{% assign decaf_4_12 = all_products['decaf-subscription-gift-every-4-weeks-12-times'] %}
+{% assign decaf_4_12_metafields = all_products['decaf-subscription-gift-every-4-weeks-12-times'].metafields.subscriptions %}
 {% capture decaf_img %}{{ 'opt2-decaf.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
 
 <!-- Route One Espresso Subscription 4682072817739 -->
 {% assign espresso = all_products['espresso-pick'] %}
+{% assign espresso_metafields = all_products['espresso-pick'].metafields.subscriptions %}
+{% assign espresso_1_3 = all_products['route-one-espresso-subscription-gift-every-week-3-times'] %}
+{% assign espresso_1_3_metafields = all_products['route-one-espresso-subscription-gift-every-week-3-times'].metafields.subscriptions %}
+{% assign espresso_1_6 = all_products['route-one-espresso-subscription-gift-every-week-6-times'] %}
+{% assign espresso_1_6_metafields = all_products['route-one-espresso-subscription-gift-every-week-6-times'].metafields.subscriptions %}
+{% assign espresso_1_9 = all_products['route-one-espresso-subscription-gift-every-week-9-times'] %}
+{% assign espresso_1_9_metafields = all_products['route-one-espresso-subscription-gift-every-week-9-times'].metafields.subscriptions %}
+{% assign espresso_1_12 = all_products['route-one-espresso-subscription-gift-every-week-12-times'] %}
+{% assign espresso_1_12_metafields = all_products['route-one-espresso-subscription-gift-every-week-12-times'].metafields.subscriptions %}
+{% assign espresso_2_3 = all_products['route-one-espresso-subscription-gift-every-2-weeks-3-times'] %}
+{% assign espresso_2_3_metafields = all_products['route-one-espresso-subscription-gift-every-2-weeks-3-times'].metafields.subscriptions %}
+{% assign espresso_2_6 = all_products['route-one-espresso-subscription-gift-every-2-weeks-6-times'] %}
+{% assign espresso_2_6_metafields = all_products['route-one-espresso-subscription-gift-every-2-weeks-6-times'].metafields.subscriptions %}
+{% assign espresso_2_9 = all_products['route-one-espresso-subscription-gift-every-2-weeks-9-times'] %}
+{% assign espresso_2_9_metafields = all_products['route-one-espresso-subscription-gift-every-2-weeks-9-times'].metafields.subscriptions %}
+{% assign espresso_2_12 = all_products['route-one-espresso-subscription-gift-every-2-weeks-12-times'] %}
+{% assign espresso_2_12_metafields = all_products['route-one-espresso-subscription-gift-every-2-weeks-12-times'].metafields.subscriptions %}
+{% assign espresso_4_3 = all_products['route-one-espresso-subscription-gift-every-4-weeks-3-times'] %}
+{% assign espresso_4_3_metafields = all_products['route-one-espresso-subscription-gift-every-4-weeks-3-times'].metafields.subscriptions %}
+{% assign espresso_4_6 = all_products['route-one-espresso-subscription-gift-every-4-weeks-6-times'] %}
+{% assign espresso_4_6_metafields = all_products['route-one-espresso-subscription-gift-every-4-weeks-6-times'].metafields.subscriptions %}
+{% assign espresso_4_9 = all_products['route-one-espresso-subscription-gift-every-4-weeks-9-times'] %}
+{% assign espresso_4_9_metafields = all_products['route-one-espresso-subscription-gift-every-4-weeks-9-times'].metafields.subscriptions %}
+{% assign espresso_4_12 = all_products['route-one-espresso-subscription-gift-every-4-weeks-12-times'] %}
+{% assign espresso_4_12_metafields = all_products['route-one-espresso-subscription-gift-every-4-weeks-12-times'].metafields.subscriptions %}
 {% capture espresso_img %}{{ 'opt2-espresso.jpg' | asset_img_url: '1200x1200' }}{% endcapture %}
 
 <!-- grind type img -->
@@ -547,7 +677,71 @@
     { ...{{ decaf | json }}, metafields: { ...{{ decaf_metafields | json }}} },
     { ...{{ espresso | json }}, metafields: { ...{{ espresso_metafields | json }}} },
   ];
-  let variantSelected = allProducts[0].variants[0]
+    // { ...{{ light_roast_1_3 | json }}, metafields: { ...{{ light_roast_1_3_metafields | json }}} },
+    // { ...{{ light_roast_1_6 | json }}, metafields: { ...{{ light_roast_1_6_metafields | json }}} },
+    // { ...{{ light_roast_1_9 | json }}, metafields: { ...{{ light_roast_1_9_metafields | json }}} },
+    // { ...{{ light_roast_1_12 | json }}, metafields: { ...{{ light_roast_1_12_metafields | json }}} },
+    // { ...{{ light_roast_2_3 | json }}, metafields: { ...{{ light_roast_2_3_metafields | json }}} },
+    // { ...{{ light_roast_2_6 | json }}, metafields: { ...{{ light_roast_2_6_metafields | json }}} },
+    // { ...{{ light_roast_2_9 | json }}, metafields: { ...{{ light_roast_2_9_metafields | json }}} },
+    // { ...{{ light_roast_2_12 | json }}, metafields: { ...{{ light_roast_2_12_metafields | json }}} },
+    // { ...{{ light_roast_4_3 | json }}, metafields: { ...{{ light_roast_4_3_metafields | json }}} },
+    // { ...{{ light_roast_4_6 | json }}, metafields: { ...{{ light_roast_4_6_metafields | json }}} },
+    // { ...{{ light_roast_4_9 | json }}, metafields: { ...{{ light_roast_4_9_metafields | json }}} },
+    // { ...{{ light_roast_4_12 | json }}, metafields: { ...{{ light_roast_4_12_metafields | json }}} },
+    // { ...{{ dark_roast_1_3 | json }}, metafields: { ...{{ dark_roast_1_3_metafields | json }}} },
+    // { ...{{ dark_roast_1_6 | json }}, metafields: { ...{{ dark_roast_1_6_metafields | json }}} },
+    // { ...{{ dark_roast_1_9 | json }}, metafields: { ...{{ dark_roast_1_9_metafields | json }}} },
+    // { ...{{ dark_roast_1_12 | json }}, metafields: { ...{{ dark_roast_1_12_metafields | json }}} },
+    // { ...{{ dark_roast_2_3 | json }}, metafields: { ...{{ dark_roast_2_3_metafields | json }}} },
+    // { ...{{ dark_roast_2_6 | json }}, metafields: { ...{{ dark_roast_2_6_metafields | json }}} },
+    // { ...{{ dark_roast_2_9 | json }}, metafields: { ...{{ dark_roast_2_9_metafields | json }}} },
+    // { ...{{ dark_roast_2_12 | json }}, metafields: { ...{{ dark_roast_2_12_metafields | json }}} },
+    // { ...{{ dark_roast_4_3 | json }}, metafields: { ...{{ dark_roast_4_3_metafields | json }}} },
+    // { ...{{ dark_roast_4_6 | json }}, metafields: { ...{{ dark_roast_4_6_metafields | json }}} },
+    // { ...{{ dark_roast_4_9 | json }}, metafields: { ...{{ dark_roast_4_9_metafields | json }}} },
+    // { ...{{ dark_roast_4_12 | json }}, metafields: { ...{{ dark_roast_4_12_metafields | json }}} },
+    // { ...{{ surprise_1_3 | json }}, metafields: { ...{{ surprise_1_3_metafields | json }}} },
+    // { ...{{ surprise_1_6 | json }}, metafields: { ...{{ surprise_1_6_metafields | json }}} },
+    // { ...{{ surprise_1_9 | json }}, metafields: { ...{{ surprise_1_9_metafields | json }}} },
+    // { ...{{ surprise_1_12 | json }}, metafields: { ...{{ surprise_1_12_metafields | json }}} },
+    // { ...{{ surprise_2_3 | json }}, metafields: { ...{{ surprise_2_3_metafields | json }}} },
+    // { ...{{ surprise_2_6 | json }}, metafields: { ...{{ surprise_2_6_metafields | json }}} },
+    // { ...{{ surprise_2_9 | json }}, metafields: { ...{{ surprise_2_9_metafields | json }}} },
+    // { ...{{ surprise_2_12 | json }}, metafields: { ...{{ surprise_2_12_metafields | json }}} },
+    // { ...{{ surprise_4_3 | json }}, metafields: { ...{{ surprise_4_3_metafields | json }}} },
+    // { ...{{ surprise_4_6 | json }}, metafields: { ...{{ surprise_4_6_metafields | json }}} },
+    // { ...{{ surprise_4_9 | json }}, metafields: { ...{{ surprise_4_9_metafields | json }}} },
+    // { ...{{ surprise_4_12 | json }}, metafields: { ...{{ surprise_4_12_metafields | json }}} },
+    // { ...{{ decaf_1_3 | json }}, metafields: { ...{{ decaf_1_3_metafields | json }}} },
+    // { ...{{ decaf_1_6 | json }}, metafields: { ...{{ decaf_1_6_metafields | json }}} },
+    // { ...{{ decaf_1_9 | json }}, metafields: { ...{{ decaf_1_9_metafields | json }}} },
+    // { ...{{ decaf_1_12 | json }}, metafields: { ...{{ decaf_1_12_metafields | json }}} },
+    // { ...{{ decaf_2_3 | json }}, metafields: { ...{{ decaf_2_3_metafields | json }}} },
+    // { ...{{ decaf_2_6 | json }}, metafields: { ...{{ decaf_2_6_metafields | json }}} },
+    // { ...{{ decaf_2_9 | json }}, metafields: { ...{{ decaf_2_9_metafields | json }}} },
+    // { ...{{ decaf_2_12 | json }}, metafields: { ...{{ decaf_2_12_metafields | json }}} },
+    // { ...{{ decaf_4_3 | json }}, metafields: { ...{{ decaf_4_3_metafields | json }}} },
+    // { ...{{ decaf_4_6 | json }}, metafields: { ...{{ decaf_4_6_metafields | json }}} },
+    // { ...{{ decaf_4_9 | json }}, metafields: { ...{{ decaf_4_9_metafields | json }}} },
+    // { ...{{ decaf_4_12 | json }}, metafields: { ...{{ decaf_4_12_metafields | json }}} },
+    // { ...{{ espresso_1_3 | json }}, metafields: { ...{{ espresso_1_3_metafields | json }}} },
+    // { ...{{ espresso_1_6 | json }}, metafields: { ...{{ espresso_1_6_metafields | json }}} },
+    // { ...{{ espresso_1_9 | json }}, metafields: { ...{{ espresso_1_9_metafields | json }}} },
+    // { ...{{ espresso_1_12 | json }}, metafields: { ...{{ espresso_1_12_metafields | json }}} },
+    // { ...{{ espresso_2_3 | json }}, metafields: { ...{{ espresso_2_3_metafields | json }}} },
+    // { ...{{ espresso_2_6 | json }}, metafields: { ...{{ espresso_2_6_metafields | json }}} },
+    // { ...{{ espresso_2_9 | json }}, metafields: { ...{{ espresso_2_9_metafields | json }}} },
+    // { ...{{ espresso_2_12 | json }}, metafields: { ...{{ espresso_2_12_metafields | json }}} },
+    // { ...{{ espresso_4_3 | json }}, metafields: { ...{{ espresso_4_3_metafields | json }}} },
+    // { ...{{ espresso_4_6 | json }}, metafields: { ...{{ espresso_4_6_metafields | json }}} },
+    // { ...{{ espresso_4_9 | json }}, metafields: { ...{{ espresso_4_9_metafields | json }}} },
+    // { ...{{ espresso_4_12 | json }}, metafields: { ...{{ espresso_4_12_metafields | json }}} },
+  console.log(allProducts.length)
+  allProducts.forEach(product => {
+    console.log(product.title)
+  })
+  let variantSelected = { ...allProducts[0].variants[0], metafields: { ...allProducts[0].metafields } }
   const ONGOING = 'ongoing';
   const GIFT = 'gift';
   const result = {
@@ -725,19 +919,19 @@
     if (isDone) {
       const { step0, step1, step2, step3, step4, step5 } = result;
       const textNote = $('#note-to-gift').val()
-      // let id;
-      // console.log(variantSelected.metafields.original_to_hidden_variant_map)
-      // Object.keys(variantSelected.metafields.original_to_hidden_variant_map).map(key => {
-      //   if (String(key) === String(variantSelected.id)) {
-      //     id = variantSelected.metafields.original_to_hidden_variant_map[key].discount_variant_id
-      //     console.log(id)
-      //   }
-      // })
+      let id;
+      console.log(variantSelected.metafields.original_to_hidden_variant_map)
+      Object.keys(variantSelected.metafields.original_to_hidden_variant_map).map(key => {
+        if (String(key) === String(variantSelected.id)) {
+          id = variantSelected.metafields.original_to_hidden_variant_map[key].discount_variant_id
+          console.log(id)
+        }
+      })
       const data = {
         items: [
           {
             quantity: 1,
-            id: '32914818891851',
+            id,
             properties: {
               'Type': step0.value === ONGOING ? 'Subscription' : 'Gift',
               'Coffee Ground': step2.title,
@@ -754,8 +948,7 @@
       }
       console.log(data)
       if (step0.value === GIFT) {
-        data.items[0].properties['number_charges_until_expiration'] = 1;
-        data.items[0].properties['charge_interval_frequency'] = parseInt(step5.value) * parseInt(step4.value);
+        data.items[0].properties['number_charges_until_expiration'] = step5.value - 1;
         // data.items[0].price = parseInt(step5.value) * parseInt(variantSelected.price);
       }
       $.ajax({
